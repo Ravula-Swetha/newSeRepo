@@ -1,0 +1,20 @@
+# Check for existing SSH keys
+ls -al ~/.ssh
+
+# Generate a new SSH key
+ssh-keygen -t ed25519 -C "your_email@example.com"
+
+# Start the SSH agent
+eval "$(ssh-agent -s)"
+ssh-add ~/.ssh/id_ed25519
+
+# Copy the public key
+cat ~/.ssh/id_ed25519.pub
+
+# Test the connection to GitHub
+ssh -T git@github.com
+
+# Update Git remote to use SSH
+git remote set-url origin git@github.com:<username>/<repository>.git
+
+https://chatgpt.com/share/67886aa6-621c-800c-a4da-aa1c71f83dba
